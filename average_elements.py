@@ -1,15 +1,23 @@
 # #Command to run the code:
-# #python3 error_handing.py
-
-while True:
+# #python3 average_elements.py
+def average_elements_list(arg):
+    try:
+       if len(arg) == 0:
+            return ('List cannot be empty divide by zero error')
+            raise ValueError
+        
+    except ValueError:
+        return('Must be list of integers')
 
     try:
-        year = int(input("Enter a year: "))
-        break
+        if all(isinstance(i, (int)) for i in arg)== False:
+                return ('Must be integer')
+                raise ValueError
     except ValueError:
-        print("Not a proper input. Please input a integer");
+        return ('Must be list of intgers')
 
-if((year % 4==0 and year % 100 !=0) or (year % 400 ==0)):
-    print("Leap year")
-else:
-    print(" Not a Leap year")
+    
+  
+
+    return sum(arg) / len(arg)
+
